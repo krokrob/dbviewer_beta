@@ -1,8 +1,16 @@
-# dbviewer
+# DBviewer
 
 DBviewer is a simple tool to read a Rails' `schema.rb` file and create an `XML` file representing a database schema readable on [db.lewagon.org](http://db.lewagon.org).
 
 This can be useful when joining a huge existing Rails project with no DB representation. 
+
+## Pre-requisites
+
+The program needs `ActiveSupport` to run so:
+
+```ruby
+gem install activesupport
+```
 
 ## Usage
 
