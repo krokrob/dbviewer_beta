@@ -23,7 +23,11 @@ def schema_parser(filepath)
       table = {}
     elsif line =~ /t\./
       unless line =~ /t\.index/
-        table[:rows] << { name: line.match(/\"(\w+)\"/)[1], datatype: line.match(/t\.(\w+)\s+\"/)[1] }
+        default_value = line.match(/default:\s+\"?(\w+)\"?/) ? line.match(/default:\s+\"?(\w+)\"?/)[1] : nil
+        row = { name: line.match(/\"(\w+)\"/)[1],
+          datatype: line.match(/t\.(\w+)\s+\"/)[1],
+          default_value: default_value }
+        table[:rows] << row
       end
     end
   end
@@ -101,15 +105,16 @@ end
 
 def generate_xml_row(row)
   datatype = pg_to_xml_datatypes(row[:datatype])
-  if datatype == "Integer" && row[:name] =~ /\w+_id$/
+  if datatype == "INTEGER" && row[:name] =~ /\w+_id$/
     relation = row[:name].match(/(\w+)_id/)[1].pluralize
     xml_relation = "<relation table=\"#{relation}\" row='id' />"
   else
     xml_relation = ""
   end
+
   return "<row name=\"#{row[:name]}\" null='1' autoincrement='0'>
     <datatype>#{datatype}</datatype>
-    <default>NULL</default>
+    <default>#{row[:default_value] ? row[:default_value] : 'NULL'}</default>
     " + xml_relation + "
   </row>
   "
