@@ -3,177 +3,159 @@
 <!-- Active URL: http://db.lewagon.org/ -->
 <sql>
 <datatypes db="mysql">
-  <group label="Numeric" color="rgb(238,238,170)">
-    <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-    <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-    <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-    <type label="INT" length="0" sql="INT" quote=""/>
-    <type label="Integer" length="0" sql="INTEGER" quote=""/>
-    <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-    <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-    <type label="Single precision" length="0" sql="FLOAT" quote=""/>
-    <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-  </group>
+    <group label="Numeric" color="rgb(238,238,170)">
+        <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+        <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+        <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+        <type label="INT" length="0" sql="INT" quote=""/>
+        <type label="Integer" length="0" sql="INTEGER" quote=""/>
+        <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+        <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+        <type label="Single precision" length="0" sql="FLOAT" quote=""/>
+        <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+    </group>
+    <group label="Character" color="rgb(255,200,200)">
+        <type label="Char" length="1" sql="CHAR" quote="'"/>
+        <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+        <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+        <type label="Binary" length="1" sql="BINARY" quote="'"/>
+        <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+        <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+    </group>
+    <group label="Date &amp; Time" color="rgb(200,255,200)">
+        <type label="Date" length="0" sql="DATE" quote="'"/>
+        <type label="Time" length="0" sql="TIME" quote="'"/>
+        <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+        <type label="Year" length="0" sql="YEAR" quote=""/>
+        <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+    </group>
 
-  <group label="Character" color="rgb(255,200,200)">
-    <type label="Char" length="1" sql="CHAR" quote="'"/>
-    <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-    <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-    <type label="Binary" length="1" sql="BINARY" quote="'"/>
-    <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-    <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-  </group>
-
-  <group label="Date &amp; Time" color="rgb(200,255,200)">
-    <type label="Date" length="0" sql="DATE" quote="'"/>
-    <type label="Time" length="0" sql="TIME" quote="'"/>
-    <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-    <type label="Year" length="0" sql="YEAR" quote=""/>
-    <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-  </group>
-
-  <group label="Miscellaneous" color="rgb(200,200,255)">
-    <type label="ENUM" length="1" sql="ENUM" quote=""/>
-    <type label="SET" length="1" sql="SET" quote=""/>
-    <type label="Bit" length="0" sql="bit" quote=""/>
-  </group>
-</datatypes>
-
-<table x="0" y="0" name="games">
-  <row name="id" null="1" autoincrement="1">
-    <datatype>TINYINT</datatype>
-    <default>NULL</default>
-  </row>
-  <row name="score" null='1' autoincrement='0'>
-    <datatype>Integer</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="difficulty" null='1' autoincrement='0'>
-    <datatype>Integer</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="user_id" null='1' autoincrement='0'>
-    <datatype>Integer</datatype>
-    <default>NULL</default>
-    <relation table="users" row='id' />
-  </row>
-  <row name="created_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="updated_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="chrono" null='1' autoincrement='0'>
-    <datatype>Time</datatype>
-    <default>NULL</default>
-    
-  </row>
-  
-  <key type="PRIMARY" name="">
-    <part>id</part>
-  </key>
+    <group label="Miscellaneous" color="rgb(200,200,255)">
+        <type label="ENUM" length="1" sql="ENUM" quote=""/>
+        <type label="SET" length="1" sql="SET" quote=""/>
+        <type label="Bit" length="0" sql="bit" quote=""/>
+    </group>
+</datatypes><table x="42" y="146" name="users">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
 </table>
-
-<table x="0" y="0" name="users">
-  <row name="id" null="1" autoincrement="1">
-    <datatype>TINYINT</datatype>
-    <default>NULL</default>
-  </row>
-  <row name="email" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="encrypted_password" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="reset_password_token" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="reset_password_sent_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="remember_created_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="sign_in_count" null='1' autoincrement='0'>
-    <datatype>Integer</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="current_sign_in_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="last_sign_in_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="current_sign_in_ip" null='1' autoincrement='0'>
-    <datatype>TINYINT</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="last_sign_in_ip" null='1' autoincrement='0'>
-    <datatype>TINYINT</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="created_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="updated_at" null='1' autoincrement='0'>
-    <datatype>Datetime</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="first_name" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="last_name" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="birth_date" null='1' autoincrement='0'>
-    <datatype>Date</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="profession" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  <row name="address" null='1' autoincrement='0'>
-    <datatype>Char</datatype>
-    <default>NULL</default>
-    
-  </row>
-  
-  <key type="PRIMARY" name="">
-    <part>id</part>
-  </key>
+<table x="556" y="152" name="cities">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
 </table>
-
+<table x="342" y="170" name="interested_city">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="teacher_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="teachers" row="id" />
+</row>
+<row name="city_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="cities" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="552" y="18" name="skills">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="343" y="29" name="teacher_skills">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="teacher_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="teachers" row="id" />
+</row>
+<row name="skill_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="skills" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="341" y="306" name="availabilities">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="available" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<row name="teacher_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="teachers" row="id" />
+</row>
+<row name="camp_day_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="camp_days" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="545" y="433" name="camp_days">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="341" y="463" name="work_days">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="teacher_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="teachers" row="id" />
+</row>
+<row name="camp_day_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="camp_days" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="83" y="258" name="teachers">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="description" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="digital_nomad" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<row name="lecturer" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
 </sql>

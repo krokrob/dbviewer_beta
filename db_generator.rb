@@ -1,11 +1,12 @@
 require 'active_support/inflector'
 DATATYPES = {
-  "string"    => "Char",
-  "integer"   => "Integer",
-  "datetime"  => "Datetime",
-  "text"      => "Text",
-  "date"      => "Date",
-  "time"      => "Time"
+  "string"    => "CHAR",
+  "integer"   => "INTEGER",
+  "datetime"  => "DATETIME",
+  "text"      => "TEXT",
+  "date"      => "DATE",
+  "time"      => "TIME",
+  "boolean"   => "BINARY"
 }
 
 def schema_parser(filepath)
