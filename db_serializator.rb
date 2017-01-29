@@ -1,13 +1,13 @@
 require 'active_support/inflector'
 
 DATATYPES = {
-  "Char"      => "string"  ,
-  "Integer"   => "integer" ,
-  "Datetime"  => "datetime",
-  "Text"      => "text"    ,
-  "Date"      => "date"    ,
-  "Time"      => "time"    ,
-  "Binary"    => "boolean"
+  "CHAR"      => "string"  ,
+  "INTEGER"   => "integer" ,
+  "DATETIME"  => "datetime",
+  "TEXT"      => "text"    ,
+  "DATE"      => "date"    ,
+  "TIME"      => "time"    ,
+  "BINARY"    => "boolean"
 }
 
 filepath = 'db.xml'
