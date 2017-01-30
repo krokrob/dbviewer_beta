@@ -1,4 +1,3 @@
-require 'active_support/inflector'
 DATATYPES = {
   "string"    => "CHAR",
   "integer"   => "INTEGER",
