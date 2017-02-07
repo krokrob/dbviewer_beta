@@ -11,9 +11,11 @@ class Router
       filepath = gets.chomp
       tables = schema_parser(filepath)
       db = generate_xml_db(tables)
-      File.open('db.xml', 'wb') { |file| file.write(db) }
+      filename = filepath.match(/\/(\w+)\/db\/schema.rb/)[1]
+      xml_path = "#{File.dirname(filepath)}/#{filename}.xml"
+      File.open(xml_path, 'wb') { |file| file.write(db) }
     when 2
-      puts 'Enter your db_scheam.xml filepath'
+      puts 'Enter your $YOUR_XML_FILE.xml filepath'
       print '> '
       filepath = gets.chomp
       p serialize(filepath)
