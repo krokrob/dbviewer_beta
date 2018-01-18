@@ -11,7 +11,7 @@ class Router
       filepath = gets.chomp
       tables = schema_parser(filepath)
       db = generate_xml_db(tables)
-      filename = filepath.match(/\/(\w+)\/db\/schema.rb/)[1]
+      filename = filepath.match(/\/([\w-]+)\/db\/schema.rb/)[1]
       xml_path = "#{File.dirname(filepath)}/#{filename}.xml"
       File.open(xml_path, 'wb') { |file| file.write(db) }
     when 2
